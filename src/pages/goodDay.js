@@ -49,7 +49,15 @@ export default function GoodDay() {
   const RenderChatRow = ({ txt, isMe, index }) => {
     if (isMe) {
       return (
-        <div style={{ textAlign: "right", margin: "10px" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "right",
+            alignItems: "center",
+            margin: "15px",
+            paddingRight: "40px",
+          }}
+        >
           <span
             style={{
               fontSize: "2.5rem",
@@ -59,14 +67,20 @@ export default function GoodDay() {
           >
             <FontAwesomeIcon icon={faUser} />
           </span>
-          {/* <strong>Question</strong> : */}
           {txt}
         </div>
       );
     } else {
       return (
         <>
-          <div style={{ margin: "10px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              margin: "15px",
+              paddingLeft: "40px",
+            }}
+          >
             <span
               style={{
                 fontSize: "2.5rem",
@@ -76,7 +90,6 @@ export default function GoodDay() {
             >
               <FontAwesomeIcon icon={faUserSecret} />
             </span>
-            {/* <strong>Answer</strong> : */}
             {txt}
           </div>
           <hr />
@@ -98,6 +111,7 @@ export default function GoodDay() {
           justifyContent: "center",
           padding: "20px",
           borderBottom: "1px solid gray",
+          backgroundColor: "black",
         }}
       >
         <input
