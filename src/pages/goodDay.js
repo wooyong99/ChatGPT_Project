@@ -4,6 +4,7 @@ import axios from "axios";
 export default function GoodDay() {
   const [userInput, setUserInput] = useState("");
   const [result, setResult] = useState("");
+  const [arr, setArr] = useState([]);
 
   //useEffect에는 2개의 파라미터가 들어가는데 첫번쨰는 function, 두번째는 dependency
   useEffect(() => {
@@ -15,7 +16,8 @@ export default function GoodDay() {
     const res = await axios.post(url, {
       userInput: userInput,
     });
-    console.log(res.data.result);
+    setArr([...arr, res.data.result]);
+    console.log("결과 : " + res.data.result);
     setResult(res.data.result);
     return true;
   };
@@ -52,7 +54,15 @@ export default function GoodDay() {
           padding: "20px 100px",
         }}
       >
-        Result : {result}
+        <ul>
+          {arr.map((answer, index) => (
+            <>
+              <li key={index} style={{ padding: "10px" }}>
+                Result : {answer}
+              </li>
+            </>
+          ))}
+        </ul>
       </div>
     </div>
   );
