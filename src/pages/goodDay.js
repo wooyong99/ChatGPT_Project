@@ -6,12 +6,18 @@ import {
   faUser,
   faUserSecret,
 } from "@fortawesome/free-solid-svg-icons";
+import { chatArrAtom } from "../states/chatArr";
+import { useRecoilState } from "recoil";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import logo from "/public/images/logo_transparent.png";
+import logo2 from "/public/images/favicon.png";
 
 export default function GoodDay() {
   const [userInput, setUserInput] = useState("");
   const [result, setResult] = useState("");
-  const [arr, setArr] = useState([]);
-
+  const [arr, setArr] = useRecoilState(chatArrAtom);
+  const router = useRouter();
   //useEffect에는 2개의 파라미터가 들어가는데 첫번쨰는 function, 두번째는 dependency
   useEffect(() => {
     console.log(userInput);
@@ -111,9 +117,32 @@ export default function GoodDay() {
           justifyContent: "center",
           padding: "20px",
           borderBottom: "1px solid gray",
-          backgroundColor: "black",
+          backgroundColor: "white",
+          alignItems: "center",
+          height: "15%",
+          marginLeft: "-150px",
         }}
       >
+        <button
+          style={{
+            backgroundColor: "white",
+            border: "0",
+            overflow: "hidden",
+          }}
+          onClick={(e) => router.push("/")}
+        >
+          <Image
+            src={logo}
+            style={{
+              width: "120px",
+              height: "100%",
+              marginTop: "-15px",
+              marginRight: "-10px",
+              marginBottom: "-50px",
+              borderColor: "white",
+            }}
+          />
+        </button>
         <input
           value={userInput}
           style={{ width: 400, height: 40, paddingLeft: "7px" }}
@@ -122,7 +151,7 @@ export default function GoodDay() {
         <button onClick={(e) => submit()}>
           <FontAwesomeIcon
             icon={faSearch}
-            style={{ fontSize: "18px", padding: "5px" }}
+            style={{ fontSize: "22px", padding: "7px" }}
           />
         </button>
       </div>
@@ -131,9 +160,9 @@ export default function GoodDay() {
         style={{
           display: "flex",
           justifyContent: "center",
-          height: 100,
           flexGrow: 1,
           padding: "20px 100px",
+          backgroundColor: "white",
         }}
       >
         <div>

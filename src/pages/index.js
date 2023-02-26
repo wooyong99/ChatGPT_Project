@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useRecoilState } from "recoil";
 
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
