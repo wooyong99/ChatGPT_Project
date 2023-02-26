@@ -167,7 +167,12 @@ export default function GoodDay() {
       >
         <div>
           {arr.map((obj, index) => (
-            <RenderChatRow txt={obj.txt} isMe={obj.isMe} index={index} />
+            <RenderChatRow
+              key={index}
+              txt={obj.txt}
+              isMe={obj.isMe}
+              index={index}
+            />
           ))}
         </div>
       </div>
