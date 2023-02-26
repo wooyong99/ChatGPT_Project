@@ -168,7 +168,7 @@ export default function GoodDay() {
         <div>
           {arr.map((obj, index) => (
             <RenderChatRow
-              key={index}
+              key={`${index}`}
               txt={obj.txt}
               isMe={obj.isMe}
               index={index}
