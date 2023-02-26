@@ -119,7 +119,7 @@ export default function GoodDay() {
           borderBottom: "1px solid gray",
           backgroundColor: "white",
           alignItems: "center",
-          height: "15%",
+          height: "10%",
           marginLeft: "-150px",
         }}
       >
